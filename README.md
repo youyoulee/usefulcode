@@ -1,2 +1,2 @@
-usefulcode
+Some useful codes for works and learn!
 ==========

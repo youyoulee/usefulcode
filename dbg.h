@@ -18,7 +18,7 @@
 #define  KWHT  "\x1B[37m"
 
 
-/* Macros for debug */
+/* Macros for debug: Use -D DEBUG to turn on these macros */
 #ifdef NDEBUG
 #define debug(M, ...)
 #else

@@ -19,6 +19,7 @@ int main (int argc, char const *argv[])
     LIST_INIT(&client_list);
 
     /* Add 10 clients to list */
+    client_t *tmp = NULL;
     for(unsigned i = 0; i < 10; ++i) {
         client_t *c = (client_t *) malloc(sizeof(client_t));
         if (!c) {
@@ -30,8 +31,13 @@ int main (int argc, char const *argv[])
 
         strncpy(c->addr, "192.168.1.101", sizeof(c->addr));
         c->port = i+1;
-
-        LIST_INSERT_HEAD(&client_list, c, entries);
+        
+        if (i == 0)
+            LIST_INSERT_HEAD(&client_list, c, entries);
+        else
+            LIST_INSERT_AFTER(tmp, c, entries);
+        
+        tmp = c;
     }
 
     /* Check add result */
